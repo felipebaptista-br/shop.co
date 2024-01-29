@@ -1,0 +1,31 @@
+/* No seu arquivo style.module.css */
+.marquee {
+    background-color: var(--black);
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0rem;
+}
+
+.imagesContainer {
+    display: inline-block;
+    animation: marqueeAnimation 25s linear infinite;
+}
+
+.imagesContainer img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    display: inline-block;
+    margin-right: 150px;
+}
+
+@keyframes marqueeAnimation {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

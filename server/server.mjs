@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Fastify from 'fastify';
+import fastifyCors from '@fastify/cors';
 import marked from 'marked';
 import colorRoutes from './app/routes/colorRoutes.mjs';
 import brandRoutes from './app/routes/brandRoutes.mjs';
@@ -14,6 +15,12 @@ const __dirname = path.dirname(__filename);
 
 export const fastify = Fastify({
     logger: true
+});
+
+fastify.register(fastifyCors, {
+    origin: '*',
+    methods: 'GET,POST,PUT,PATCH,DELETE',
+    credentials: true,
 });
 
 fastify.get('/', async function handler(_request, reply) {

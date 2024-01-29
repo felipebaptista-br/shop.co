@@ -11,6 +11,7 @@
   "author": "Dev Felipe Baptista",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^9.0.0",
     "dotenv": "^16.4.1",
     "fastify": "^4.25.2",
     "marked": "^2.0.0",

@@ -19,3 +19,25 @@ body {
   background-color: var(--white);
   font-family: 'Satoshi', sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-dark-1);
+}
+
+::selection {
+  color: var(--white);
+  background: var(--gray-dark-1);
+}
