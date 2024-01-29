@@ -1,52 +1,95 @@
-import Fastify from 'fastify'
-import colorRoutes from './app/routes/colorRoutes.mjs'
-import brandRoutes from './app/routes/brandRoutes.mjs'
-import categoryRoutes from './app/routes/categoryRoutes.mjs'
-import commentRoutes from './app/routes/commentRoutes.mjs'
-import productRoutes from './app/routes/productRouters.mjs'
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import Fastify from 'fastify';
+import marked from 'marked';
+import colorRoutes from './app/routes/colorRoutes.mjs';
+import brandRoutes from './app/routes/brandRoutes.mjs';
+import categoryRoutes from './app/routes/categoryRoutes.mjs';
+import commentRoutes from './app/routes/commentRoutes.mjs';
+import productRoutes from './app/routes/productRouters.mjs';
 
-const startWelcomeMessage = {
-    welcome: 'API SHOP.CO with Node.js',
-    message: 'Im excited to share with you a significant update to my online portfolio. Recently, I implemented a new server using Node.js with the Fastify framework to provide an even more efficient and dynamic experience.',
-    details: {
-        Technology: 'Node.js with Fastify',
-        Objective: 'Enhance the performance and usability of my portfolio, ensuring fast navigation and effective presentation of my projects and skills.',
-        dotenv: [
-            'PGHOST',
-            'PGDATABASE',
-            'PGUSER',
-            'PGPASSWORD',
-            'ENDPOINT_ID'
-        ],
-        services: {
-            deploy: '',
-            documentation: '',
-            github: 'https://github.com/felipebaptista-br/shop.co',
-            version: '0.1.0',
-            database: 'postgres - neon.tech: https://neon.tech/',
-        },
-        dependences: [
-            'fastify',
-            'dotenv',
-            'postgres'
-        ]
-    }
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export const fastify = Fastify({
     logger: true
-})
+});
 
-fastify.get('/', async function handler(_request, _reply) { return startWelcomeMessage })
-fastify.register(colorRoutes)
-fastify.register(brandRoutes)
-fastify.register(categoryRoutes)
-fastify.register(commentRoutes)
-fastify.register(productRoutes)
+fastify.get('/', async function handler(_request, reply) {
+    const readmePath = path.join(__dirname, 'README.md');
+
+    try {
+        const readmeContent = await fs.promises.readFile(readmePath, 'utf-8');
+        const htmlContent = marked(readmeContent);
+        const styledHtmlContent = `
+            <html>
+                <head>
+                    <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+                        body {                            
+                            padding: 50px;
+                            text-align: justify;
+                            background-color: #9F9F9F;
+                            font-family: 'Poppins', sans-serif;
+                        }
+
+                        div {
+                            width: 50%;
+                            margin: auto;
+                            padding: 50px;
+                            border: 5px solid #02005F;
+                            border-radius: 20px;
+                            background-color: #ECECEC;
+                        }
+
+                        h1 {
+                            color: #fff;
+                            background-color: #02005F;
+                            padding: 15px;
+                            border-radius: 15px;
+                        }
+
+                        h2, h3 {
+                            color: #333;
+                        }
+                        
+                        h2 {
+                            background-color: #DEDEDE;
+                            color: #02005F;
+                            padding: 15px;
+                            border-radius: 15px;
+                        }
+                        
+                        a {
+                            text-decoration: none;
+                            color: #0300A7;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div>
+                        ${htmlContent}
+                    </div>
+                </body>
+            </html>
+        `;
+        reply.header('Content-Type', 'text/html; charset=utf-8').send(styledHtmlContent);
+    } catch (error) {
+        reply.status(500).send({ error: 'Internal Server Error' });
+    }
+});
+
+fastify.register(colorRoutes);
+fastify.register(brandRoutes);
+fastify.register(categoryRoutes);
+fastify.register(commentRoutes);
+fastify.register(productRoutes);
 
 try {
-    await fastify.listen({ port: 5000, host: '0.0.0.0' })
+    await fastify.listen({ port: 5000, host: '0.0.0.0' });
 } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
+    fastify.log.error(err);
+    process.exit(1);
 }

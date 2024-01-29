@@ -136,6 +136,7 @@ Nesta seção, é fornecido o comando (`npm start`) para iniciar o servidor da a
 - Fastify
 - dotenv
 - postgres
+- marked
 
 Certifique-se de ter todas as dependências instaladas antes de executar o projeto.
 
