@@ -1,0 +1,13 @@
+.ul {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.li {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--gray-dark-1);
+}

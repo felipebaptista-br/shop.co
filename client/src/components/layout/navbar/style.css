@@ -1,0 +1,36 @@
+.nav-bar {
+    width: 100%;
+    height: 85px;
+    user-select: none;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+}
+
+.nav-bar-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.nav-bar-navigation {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-bar-link {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.nav-bar-panel {
+    display: flex;
+    gap: 15px;
+}

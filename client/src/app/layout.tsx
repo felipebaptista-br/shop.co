@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Head from "next/head";
+import { Footer, Navbar } from "@/components";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +19,20 @@ export default function RootLayout({
       <Head>
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,301,701,300,501,401,901,400&display=swap" rel="stylesheet" />
       </Head>
-      <body>{children}</body>
+      <body>
+        <Navbar.Root>
+          <Navbar.NavLogo />
+          <Navbar.Navigation>
+            <Navbar.NavLink href="/">Home</Navbar.NavLink>
+            <Navbar.NavLink href="/showcase">Showcase</Navbar.NavLink>
+            <Navbar.NavLink href="/contact">Contato</Navbar.NavLink>
+          </Navbar.Navigation>
+          <Navbar.NavSearch />
+          <Navbar.NavPanel />
+        </Navbar.Root>
+        {children}
+        {/* <Footer.Root /> */}
+      </body>
     </html>
   );
 }

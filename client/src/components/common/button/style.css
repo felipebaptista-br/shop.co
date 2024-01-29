@@ -1,0 +1,49 @@
+/* default buttons */
+.btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn:hover {
+    transition: .4s;
+}
+
+/* variant buttons */
+.btn-black {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.btn-black:hover {
+    background-color: var(--dark);
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--gray-dark-3);
+}
+
+.btn-white:hover {
+    border-color: var(--black);
+}
+
+/* size buttons */
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.btn-medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+}

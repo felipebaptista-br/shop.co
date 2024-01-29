@@ -1,0 +1,23 @@
+.input-text {
+    width: 100%;
+    border: none;
+    color: var(--black);
+    border: 1px solid var(--gray-dark-3);
+    border-radius: 5rem;
+}
+
+/* size inputs */
+.input-text-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.input-text-medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.input-text-large {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+}
