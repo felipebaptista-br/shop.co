@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react'
 import { Button, Container, Input, List } from '@/components';
-import { getCurrentYear } from '@/utils/helpers/dateTimeUtils';
+import { getCurrentYear } from '@/utils/helpers/dateTime';
 import Image from 'next/image';
 import Logo from '@/assets/logo.svg';
-import IconMail from '@/assets/icons/mail.svg';
 import IconFacebook from '@/assets/socialmidia/facebook.svg';
 import IconInstagram from '@/assets/socialmidia/instagram.svg';
 import IconTwitter from '@/assets/socialmidia/twitter.svg';
@@ -35,7 +34,7 @@ function Root() {
                             value={emailAddressUser}
                             onChange={(e) => setEmailAddressUser(e.target.value)}
                         />
-                        <Button.Root variant='white' sizeBtn='medium'>
+                        <Button.Root className='footer-form-button' variant='white' sizeBtn='medium'>
                             Inscreva-se na nossa Newsletter
                         </Button.Root>
                     </div>

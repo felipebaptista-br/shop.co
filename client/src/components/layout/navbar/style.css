@@ -34,3 +34,7 @@
     display: flex;
     gap: 15px;
 }
+
+.nav-bar-panel img {
+    cursor: pointer;
+}

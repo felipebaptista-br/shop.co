@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
     padding: 50px 0px;
 }
 
@@ -21,28 +21,5 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 25px;
-}
-
-.news-grid-item {
-    cursor: pointer;
-}
-
-.news-grid-item img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.news-grid-item-content {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    gap: 10px;
-}
-
-.news-grid-item-content p {
-    color: var(--black);
-    font-size: 1.5rem;
-    font-weight: 600;
+    gap: 20px;
 }

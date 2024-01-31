@@ -24,13 +24,13 @@ export default function RootLayout({
           <Navbar.NavLogo />
           <Navbar.Navigation>
             <Navbar.NavLink href="/">Home</Navbar.NavLink>
-            <Navbar.NavLink href="/showcase">Showcase</Navbar.NavLink>
+            <Navbar.NavLink href="/showcase">Shop</Navbar.NavLink>
           </Navbar.Navigation>
           <Navbar.NavSearch />
           <Navbar.NavPanel />
         </Navbar.Root>
         {children}
-        {/* <Footer.Root /> */}
+        <Footer.Root />
       </body>
     </html>
   );

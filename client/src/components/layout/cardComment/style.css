@@ -1,0 +1,18 @@
+.card-comment {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 25px;
+    gap: 10px;
+    border: 2px solid var(--gray-dark-3);
+}
+
+.card-comment img {
+    width: 25px;
+    height: 25px;
+}
+
+.card-comment-description {
+    color: var(--gray-dark-1);
+    font-size: 0.9rem;
+}

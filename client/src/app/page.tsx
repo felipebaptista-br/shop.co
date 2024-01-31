@@ -1,5 +1,5 @@
 import {
-  Background, Marquee, News,
+  Background, Customers, Dress, Marquee, News,
 } from '@/components';
 
 import './style.css'
@@ -10,6 +10,8 @@ export default function Home() {
       <Background.Root />
       <Marquee.Root />
       <News.Root />
+      <Dress.Root />
+      <Customers.Root />
     </main>
   );
 }

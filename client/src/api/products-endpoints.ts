@@ -1,8 +1,5 @@
 import api from './api';
-
-interface ProductProps {
-    id: number;
-}
+import ProductProps from '@/interfaces/product';
 
 const getAllProducts = async () => {
     try {
@@ -14,9 +11,13 @@ const getAllProducts = async () => {
     }
 };
 
-const getProductById = async ({ id }: ProductProps) => {
+interface ProductsIdProps {
+    id_product: string
+}
+
+const getProductById = async ({ id_product }: ProductsIdProps) => {
     try {
-        const response = await api.get(`/product/${id}`);
+        const response = await api.get(`/product/${id_product}`);
         return response.data
     } catch (error) {
         console.error('Error fetching product:', error);
@@ -26,5 +27,5 @@ const getProductById = async ({ id }: ProductProps) => {
 
 export {
     getAllProducts,
-    getProductById 
+    getProductById
 }
