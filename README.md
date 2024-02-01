@@ -1,7 +1,5 @@
 # Shop.Co Front-end - Documentação
 
-Bem-vindo à documentação oficial da API Shop.Co. Esta API foi desenvolvida usando Node.js com o framework Fastify e se conecta a um banco de dados PostgreSQL. Ela oferece funcionalidades para gerenciar produtos, marcas, categorias, cores e comentários.
-
 ## Índice
 
 1. [Visão Geral](#1-visão-geral)
