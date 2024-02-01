@@ -1,10 +1,11 @@
 
+import { DetailCart } from '@/components'
 import './style.css'
 
 export default function Cart() {
     return (
-        <main className='screen-cart'>
-            Cart
+        <main id='screen-cart'>
+            <DetailCart.Root />
         </main>
     )
 }

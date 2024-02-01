@@ -3,7 +3,7 @@
     height: 85px;
     user-select: none;
     position: sticky;
-    z-index: 1000;
+    z-index: 2;
     top: 0;
     display: flex;
     align-items: center;
@@ -31,10 +31,30 @@
 }
 
 .nav-bar-panel {
+    width: auto;
     display: flex;
     gap: 15px;
 }
 
 .nav-bar-panel img {
     cursor: pointer;
+}
+
+.nav-bar-panel-cart {
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+.nav-bar-cart-number {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    background-color: var(--black);
+    color: var(--white);
+    font-weight: 600;
 }

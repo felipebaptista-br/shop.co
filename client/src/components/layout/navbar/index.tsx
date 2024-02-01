@@ -1,7 +1,11 @@
+'use client'
+
+import { useEffect, useState } from 'react';
 import {
     Container,
     Input
 } from '@/components';
+import { useCart } from '@/context/contextCart';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/assets/logo.svg';
@@ -9,6 +13,7 @@ import IconCart from '@/assets/icons/cart.svg';
 import IconUser from '@/assets/icons/user.svg';
 
 import './style.css'
+import { useRouter } from 'next/navigation';
 
 interface RootProps {
     children: React.ReactNode,
@@ -45,15 +50,31 @@ function NavSearch({ ...props }: NavSearchProps) {
     return <Input.Root {...props} sizeInput='medium' placeholder='Search for products' />
 }
 
-
 function NavPanel() {
+    const router = useRouter();
+    const { viewCart } = useCart();
+    const [cartLengt, setCartLength] = useState(0);
+
+    useEffect(() => {
+        const updateCartLength = () => {
+            const cartContent = viewCart();
+            setCartLength(cartContent.length);
+        };
+        window.addEventListener('cartUpdated', updateCartLength);
+        return () => {
+            window.removeEventListener('cartUpdated', updateCartLength);
+        };
+    }, [viewCart]);
+
     return (
         <div className='nav-bar-panel'>
-            <Image src={IconCart} alt='Icon Cart' />
+            <span onClick={() => router.push('/cart')} className='nav-bar-panel-cart'>
+                <Image src={IconCart} alt='Icon Cart' />
+                <p className='nav-bar-cart-number'>{cartLengt}</p>
+            </span>
             <Image src={IconUser} alt='Icon User' />
         </div>)
 }
-
 
 export {
     Root,

@@ -1,22 +1,26 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { getUrlSlug } from '@/utils/helpers/browserParamsHandler';
 import { getProductById } from '@/api/products-endpoints';
-import { getAllComments } from '@/api/comments-endpoints';
+import { useCart } from '@/context/contextCart';
 import { getAllColors } from '@/api/colors-endpoints';
-import { Button, Container } from '@/components';
+import { Alert, Button, Container } from '@/components';
 import ProductProps from '@/interfaces/product';
-import CommentProps from '@/interfaces/comment';
 import ColorProps from '@/interfaces/color';
 import IconStar from '@/assets/icons/star.svg';
 import Image from 'next/image';
+import IconCheck from '@/assets/icons/check.svg';
 
 import './style.css'
 
 function Root() {
+    const router = useRouter()
+    const { addToCart } = useCart();
     const [product, setProduct] = useState<ProductProps>();
     const [colors, setColors] = useState<ColorProps[]>([]);
+    const [selectedProduct, setSelectedProducts] = useState<boolean>(false);
 
     useEffect(() => {
         const productId = getUrlSlug();
@@ -58,8 +62,22 @@ function Root() {
         )
     }
 
+    const handleSelectedProduct = () => {
+        setSelectedProducts(true);
+        addToCart(product)
+        setTimeout(() => {
+            router.push('/showcase');
+        }, 1500);
+    }
+
     return (
         <div className='detail-product'>
+            {selectedProduct &&
+                <Alert.Root type='success'>
+                    <Alert.Description description='Product added to cart' />
+                    <Alert.Icon><Image src={IconCheck} alt='Icon Check' width={30} height={30} /></Alert.Icon>
+                </Alert.Root>
+            }
             <Container.Root>
                 <div className='detail-product-container'>
                     <img className='detail-product-img' src={product.image} alt={product.name} />
@@ -85,7 +103,7 @@ function Root() {
                             </div>
                         </div>
                         <div className='details-product-options'>
-                            <Button.Root className='detail-product-button' sizeBtn='medium' variant='black'>
+                            <Button.Root onClick={() => handleSelectedProduct()} className='detail-product-button' sizeBtn='medium' variant='black'>
                                 Add to Cart
                             </Button.Root>
                         </div>

@@ -1,0 +1,40 @@
+
+.list-products {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    gap: 25px;
+    border-bottom: 2px solidz var(--gray-dark-3);
+}
+
+.list-products-container {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.list-product-img {
+    width: 400px;
+    height: 250px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.list-product-name {
+
+}
+
+.list-product-description {
+
+}
+
+.list-product-price {
+
+}
+
+.list-product-skeleton {
+
+}

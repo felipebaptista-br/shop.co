@@ -1,0 +1,33 @@
+.alert {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--white);
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    border: 5px solid var(--gray-dark-1);
+    border-radius: 25px;
+    padding: 25px;
+    margin: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.alert-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-success {
+    border-color: #00a908;
+}
+
+.alert-error {
+    border-color: #ff0000;
+}
