@@ -21,10 +21,11 @@ Bem-vindo(a) à Shop.Co, uma aplicação Web E-commerce criada para a compra de 
 
 ### Funcionalidades Principais
 
-- **Adição de Produtos no carrinho**: Você poderá escolher uma série de produtos no catálogo e adicionar ao carrinho de compras.
+- **Catálogo de Produtos**: Uma série de roupas em um catálogo que podem ser visualizadas na página 'shop'.
+- **Adição de Produtos no carrinho**: Você poderá escolher uma série de produtos do catálogo e adicionar ao carrinho de compras.
 - **Remoção de Produtos do carrinho**: Remova os itens que não gostou do carrinho de compras.
 - **Filtragem de Produtos por categorias**: Escolha produtos por categorias.
-- **Finalização de Compra**: Finalize a compra de forma fictícia.
+- **Finalização de Compra**: Finalize a compra e receba um feedback.
 
 ### Tecnologias Utilizadas
 
@@ -46,7 +47,9 @@ Clone o repositório para o seu ambiente local e instale as dependências usando
 ```bash
 git clone https://github.com/felipebaptista-br/shop.co.git
 cd shop.co/client
-npm install ou yarn install
+npm install
+ou
+yarn install
 ```
 
 ## 2. Execução
