@@ -32,7 +32,7 @@ export default function RootLayout({
             <Navbar.NavPanel />
           </Navbar.Root>
           {children}
-          {/* <Footer.Root /> */}
+          <Footer.Root />
         </body>
       </html>
     </CartProvider>
