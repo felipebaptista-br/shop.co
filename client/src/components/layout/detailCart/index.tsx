@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { calculateSubtotal, calculateDiscount, calculateTotal } from '@/utils/helpers/calculate';
 import { useCart } from '@/context/contextCart';
 import {
     Alert,
@@ -79,9 +80,19 @@ function ListProducts() {
 }
 
 function OrderSummary() {
-    const { clearCart } = useCart();
-    const router = useRouter();
+    const { viewCart, clearCart } = useCart();
     const [finishPush, setFinishPush] = useState<boolean>(false);
+    const [subtotal, setSubtotal] = useState<number>(0);
+    const [discount, setDiscount] = useState<number>(0);
+    const [total, setTotal] = useState<number>(0);
+    const deliveryFee = 15;
+    const router = useRouter();
+
+    useEffect(() => {
+        setSubtotal(calculateSubtotal(viewCart()));
+        setDiscount(calculateDiscount(viewCart(), 0.1));
+        setTotal(calculateTotal(viewCart(), 0.1, deliveryFee));
+    }, [])
 
     const handleFinishPush = () => {
         setFinishPush(true);
@@ -103,11 +114,11 @@ function OrderSummary() {
             <div className='order-summary-items'>
                 <span className='order-summary-item'>
                     <p className='order-summary-item-title'>Subtotal</p>
-                    <p>R$ 565</p>
+                    <p>{subtotal}</p>
                 </span>
                 <span className='order-summary-item'>
-                    <p className='order-summary-item-title'>Discount (%)</p>
-                    <p>R$ -113</p>
+                    <p className='order-summary-item-title'>Discount (10%)</p>
+                    <p>R$ ({discount})</p>
                 </span>
                 <span className='order-summary-item'>
                     <p className='order-summary-item-title'>Delivery Fee</p>
@@ -117,7 +128,7 @@ function OrderSummary() {
             <div className='order-summary-finish'>
                 <span className='order-summary-total'>
                     <p className='order-summary-total-title'>Total</p>
-                    <p>R$ 452</p>
+                    <p>{total}</p>
                 </span>
                 <Button.Root onClick={() => handleFinishPush()} className='order-summary-button' variant='black' sizeBtn='medium'>Finalize Purchase <Image src={IconArrowRight} alt='Icon Arrow Right' width={20} height={20} /></Button.Root>
             </div>
