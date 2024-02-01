@@ -15,6 +15,7 @@ import * as Footer from './layout/footer';
 import * as Marquee from './layout/marquee';
 import * as Navbar from './layout/navbar';
 import * as News from './layout/news';
+import * as Store from './layout/store';
 
 export {
     Button,
@@ -30,5 +31,6 @@ export {
     Footer,
     Marquee,
     Navbar,
-    News
+    News,
+    Store
 }

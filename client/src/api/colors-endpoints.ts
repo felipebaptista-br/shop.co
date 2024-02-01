@@ -1,5 +1,4 @@
 import api from './api';
-import ColorProps from '@/interfaces/color';
 
 const getAllColors = async () => {
     try {

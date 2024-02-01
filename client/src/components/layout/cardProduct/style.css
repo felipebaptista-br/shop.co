@@ -1,5 +1,5 @@
 .card-product {
-    height: 410px;
+    height: 400px;
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -25,8 +25,8 @@
 }
 
 .card-product-name {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .card-product-price {

@@ -24,7 +24,7 @@ export default function RootLayout({
           <Navbar.NavLogo />
           <Navbar.Navigation>
             <Navbar.NavLink href="/">Home</Navbar.NavLink>
-            <Navbar.NavLink href="/showcase">Shop</Navbar.NavLink>
+            <Navbar.NavLink href="/showcase">Store</Navbar.NavLink>
           </Navbar.Navigation>
           <Navbar.NavSearch />
           <Navbar.NavPanel />
